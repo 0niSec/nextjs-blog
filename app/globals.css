@@ -1,3 +1,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* rehype-pretty-code styles */
+/* https://velite.js.org/guide/code-highlighting#rehype-pretty-code */
+
+[data-rehype-pretty-code-figure] pre {
+  @apply px-0;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply text-sm !leading-loose md:text-base;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-gray-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply border-l-2 border-l-transparent px-3;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+/* custom styles */
+
+@layer base {
+  :root {
+    --color-primary: 23 23 23;
+    --color-accent-primary: 163 230 53; /* lime-400 */
+    --color-accent-secondary: 132 204 22; /* lime-500 */
+    --color-success: 34 197 94;
+    --color-info: 20 184 166;
+    --color-warning: 253 188 50;
+    --color-error: 244 63 94;
+  }
+
+  a:not(.no-hover),
+  a.dropdown {
+    @apply hover:text-accent-primary;
+  }
+
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  .heading-link {
+    @apply text-neutral-200/50;
+  }
+
+  ::selection {
+    @apply bg-accent-secondary text-neutral-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.heading-anchor {
+  color: var(--color-accent-primary);
+  opacity: 25%;
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+
+.heading-anchor:hover {
+  color: var(--color-accent-primary);
+  opacity: 100%;
+}
+
+article {
+  margin-top: 4rem;
+}

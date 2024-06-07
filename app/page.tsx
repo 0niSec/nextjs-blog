@@ -1,13 +1,15 @@
 import Image from "next/image";
-import { allPosts } from "content-collections";
+import { posts } from "#site/content";
 
 export default function Home() {
   return (
-    <main>
+    <main className="container mt-8 flex min-h-screen flex-col">
       <h1>Posts</h1>
       <ul>
-        {allPosts.map((post) => (
-          <a href={post._meta.path}>{post.title}</a>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <a href={`blog/${post.slug}`}>{post.title}</a>
+          </li>
         ))}
       </ul>
     </main>
