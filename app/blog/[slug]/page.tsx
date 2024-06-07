@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/app/lib/utils";
 
-export default function BlogPost({ params }) {
+export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug);
 
   // If the blog post requested does not exist, throw a 404 using Next's notFound function - neat!
