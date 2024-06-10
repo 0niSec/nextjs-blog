@@ -1,16 +1,30 @@
-import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/app/lib/utils";
+import { Metadata } from "next";
+import { cache } from "react";
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+const getPostBySlugInPage = cache(async (slug: any) => {
+  const post = await getPostBySlug(slug);
+  return {
+    title: post?.title,
+    description: post?.description,
+  };
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = await getPostBySlugInPage(params.slug);
+  return {
+    title: data?.title,
+  };
+}
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug);
 
-  // If the blog post requested does not exist, throw a 404 using Next's notFound function - neat!
-  // https://nextjs.org/docs/app/api-reference/functions/not-found
-  if (post == null) notFound();
-
-  return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-    </>
-  );
+  return <div dangerouslySetInnerHTML={{ __html: post!.content }}></div>;
 }

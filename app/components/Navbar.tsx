@@ -9,7 +9,6 @@ export default function NavBar() {
           <Link href={"/"}>/home</Link>
           <Link href={"/about"}>/about</Link>
           <Link href={"/blog"}>/blog</Link>
-          <Link href={"/contact"}>/contact</Link>
           <Link href={"/guestbook"}>/guestbook</Link>
           <Link href={GITHUB_URL}>
             <svg

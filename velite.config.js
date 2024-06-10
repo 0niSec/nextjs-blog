@@ -47,7 +47,12 @@ export default defineConfig({
   },
   markdown: {
     rehypePlugins: [
-      rehypePrettyCode,
+      [
+        rehypePrettyCode,
+        {
+          theme: "aurora-x",
+        },
+      ],
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
