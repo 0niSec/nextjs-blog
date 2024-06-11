@@ -64,12 +64,38 @@
   }
 
   h2 {
-    @apply text-3xl font-bold;
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  h4 {
+    @apply text-base font-bold;
   }
 
   .heading-link {
     @apply text-neutral-200/50;
   }
+
+  article:has(#table-of-contents) a {
+    @apply text-accent-primary hover:text-accent-secondary no-underline;
+  }
+
+  code,
+  kbd {
+    @apply text-neutral-400 !important;
+  }
+
+  code::before,
+  code::after {
+    content: "" !important;
+  }
+
+  /* article:has(#table-of-contents) li {
+    @apply mt-0 mb-0;
+  } */
 
   ::selection {
     @apply bg-accent-secondary text-neutral-800;
@@ -94,6 +120,7 @@
   opacity: 100%;
 }
 
-article {
-  margin-top: 4rem;
+p > mark {
+  background: rgb(--color-accent-primary) !important;
+  color: rgb(--color-primary) !important;
 }

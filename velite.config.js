@@ -25,13 +25,11 @@ const posts = defineCollection({
       date: s.isodate(),
       updated: s.isodate().optional(),
       cover: s.image().optional(),
-      description: s.string().max(255).optional(),
-      tags: s.array(s.string()).default([]),
-      meta: meta,
-      toc: s.toc(),
-      metadata: s.metadata(),
+      description: s.string().max(999).optional(),
       excerpt: s.excerpt(),
+      tags: s.array(s.string()).default([]),
       content: s.markdown(),
+      isMachineActive: s.boolean(false).optional(),
     })
     .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` })),
 });
@@ -46,6 +44,14 @@ export default defineConfig({
     clean: true,
   },
   markdown: {
+    remarkPlugins: [
+      [
+        remarkToc,
+        {
+          heading: "table of contents",
+        },
+      ],
+    ],
     rehypePlugins: [
       [
         rehypePrettyCode,

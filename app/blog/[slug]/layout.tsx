@@ -17,9 +17,13 @@ export default function BlogPost({
   if (post == null) notFound();
 
   return (
-    <article className="prose container prose-headings:text-neutral-300 text-neutral-200 max-w-4xl">
-      <h1></h1>
-      {children}
-    </article>
+    <main className="flex min-h-screen flex-col">
+      <section className="prose container prose-headings:text-neutral-300 text-neutral-200 max-w-4xl">
+        <article>
+          <h1></h1>
+          {children}
+        </article>
+      </section>
+    </main>
   );
 }

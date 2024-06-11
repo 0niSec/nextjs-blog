@@ -1,19 +1,28 @@
 import Link from "next/link";
 import { GITHUB_URL, HTB_URL } from "@/app/lib/consts";
+import { Search } from "lucide-react";
 
 export default function NavBar() {
   return (
-    <header className="bg-neutral-800/10 border-b border-b-neutral-700 shadow-md">
-      <nav className="container p-4 flex justify-center items-center font-semibold">
-        <div className="flex space-x-4 items-center">
-          <Link href={"/"}>/home</Link>
-          <Link href={"/about"}>/about</Link>
-          <Link href={"/blog"}>/blog</Link>
-          <Link href={"/guestbook"}>/guestbook</Link>
+    <header className="py-10">
+      <nav className="container max-w-5xl flex justify-between items-center font-semibold">
+        <div className="flex  items-center">
+          <Link href={"/"} className="text-2xl">
+            0niSec
+          </Link>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Link href={"/blog"}>Blog</Link>
+          <Link href={"/tags"}>Tags</Link>
+          <Link href={"/about"}>About</Link>
+          <Link href={"/guestbook"}>Guestbook</Link>
+          <Search className="w-6 h-6 cursor-pointer" />
+        </div>
+        <div className="flex items-center space-x-4">
           <Link href={GITHUB_URL}>
             <svg
               role="img"
-              className="w-8 h-8 fill-neutral-200 hover:fill-accent-primary"
+              className="w-6 h-6 fill-neutral-200 hover:fill-accent-primary"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -24,7 +33,7 @@ export default function NavBar() {
           <Link href={HTB_URL}>
             <svg
               role="img"
-              className="w-8 h-8 fill-neutral-200 hover:fill-accent-primary"
+              className="w-6 h-6 fill-neutral-200 hover:fill-accent-primary"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
