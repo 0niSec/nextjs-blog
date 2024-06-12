@@ -1,6 +1,6 @@
-import FormattedDate from "@/app/components/FormattedDate";
+import FormattedDate from "@/components/FormattedDate";
 import Link from "next/link";
-import TagLinks from "./TagLinks";
+import TagLinks from "@/components/TagLinks";
 
 export default function BlogPageListingItem(props: {
   title: string;

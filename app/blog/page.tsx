@@ -1,8 +1,7 @@
-import BlogPageListingItem from "../components/BlogPageListingItem";
+import BlogPageListingItem from "@/components/BlogPageListingItem";
 import { posts } from "#site/content";
 import { Metadata } from "next";
 import { Suspense } from "react";
-import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -21,23 +20,21 @@ export default function BlogPage() {
           <li>Tag 2</li>
         </ul>
       </div>
-      <Suspense fallback={<Loading />}>
-        <div id="post-listing" className="col-span-3">
-          <ul>
-            {posts.map((post, index) => (
-              <BlogPageListingItem
-                key={post.title}
-                title={post.title}
-                tags={post.tags}
-                description={post.description as string}
-                date={post.date}
-                slug={post.permalink}
-                keyProp={post.slug}
-              />
-            ))}
-          </ul>
-        </div>
-      </Suspense>
+      <div id="post-listing" className="col-span-3">
+        <ul>
+          {posts.map((post) => (
+            <BlogPageListingItem
+              key={post.title}
+              title={post.title}
+              tags={post.tags}
+              description={post.description as string}
+              date={post.date}
+              slug={post.permalink}
+              keyProp={post.slug}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

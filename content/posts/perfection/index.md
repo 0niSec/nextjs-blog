@@ -5,7 +5,7 @@ tags: ["XSS", "SSTI", "Ruby", "Burp", "RCE", "htb", "writeup"]
 date: 2024-06-10
 slug: "perfection"
 cover: "Perfection.png"
-isMachineActive: false
+isMachineActive: true
 ---
 
 ## Table of Contents

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GITHUB_URL, HTB_URL } from "@/app/lib/consts";
+import { GITHUB_URL, HTB_URL } from "@/lib/consts";
 import { Search } from "lucide-react";
 
 export default function NavBar() {

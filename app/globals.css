@@ -41,7 +41,8 @@
   @apply border-b-2 p-1 shadow-none;
 }
 
-/* custom styles */
+/* Tailwind custom styles */
+/* https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles */
 
 @layer base {
   :root {
@@ -79,12 +80,8 @@
     @apply text-neutral-200/50;
   }
 
-  article:has(.prose) a {
-    @apply text-accent-primary !important;
-  }
-
-  article:has(#table-of-contents) a {
-    @apply text-accent-primary hover:text-accent-secondary no-underline;
+  section.prose a {
+    @apply text-accent-primary hover:text-accent-secondary no-underline !important;
   }
 
   code,
@@ -111,6 +108,8 @@
     text-wrap: balance;
   }
 }
+
+/* Custom base CSS styles no Tailwind */
 
 .heading-anchor {
   color: var(--color-accent-primary);

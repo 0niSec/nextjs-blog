@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { posts } from "#site/content";
 import { Metadata } from "next";
-import HomePageListingItem from "./components/HomePageListingItem";
+import HomePageListingItem from "@/components/HomePageListingItem";
 
 export const metadata: Metadata = {
   title: "Home",

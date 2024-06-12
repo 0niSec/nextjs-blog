@@ -1,11 +1,7 @@
-import { getPostBySlug, getPreviousPost } from "@/app/lib/utils";
+import { getPostBySlug } from "@/lib/utils";
 import { Metadata } from "next";
-import { cache } from "react";
-import Image from "next/image";
-import FormattedDate from "@/app/components/FormattedDate";
-import TagLinks from "@/app/components/TagLinks";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 type Props = {
   params: {
@@ -25,6 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getPostBySlugInPage(params.slug);
   return {
     title: data?.title,
+    description: data?.description,
+    openGraph: {
+      title: data?.title,
+      description: data?.description,
+    },
   };
 }
 
@@ -34,8 +35,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   // If the blog post requested does not exist, throw a 404 using Next's notFound function - neat!
   // https://nextjs.org/docs/app/api-reference/functions/not-found
   if (post == null) notFound();
-
-  const previousPost = getPreviousPost(post?.slug as string);
 
   return post.isMachineActive ? (
     <div className="flex flex-col">
@@ -47,54 +46,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       </p>
     </div>
   ) : (
-    <section className="prose container prose-headings:text-neutral-300 text-neutral-200 max-w-none">
-      <article>
-        <div className="pb-6 text-center">
-          <h2 className="not-prose text-base mb-2 text-neutral-500">
-            <FormattedDate date={post.date} />
-          </h2>
-          <h1 className="text-5xl not-prose">{post.title}</h1>
-        </div>
-        <div className="grid grid-cols-4 grid-rows-[auto_1fr] mt-10">
-          <div className="text-sm pb-8">
-            <h5 className="font-bold uppercase tracking-wide">Tags</h5>
-            <div className="flex flex-wrap gap-x-4">
-              {post.tags.map((tag) => (
-                <Link href={`/tags/${tag}`} key={tag}>
-                  {tag}
-                </Link>
-              ))}
-            </div>
-            <div className="flex text-sm flex-col py-8">
-              <h5 className="font-bold uppercase tracking-wide">
-                Next Article
-              </h5>
-              <Link
-                href={previousPost.slug ?? "/"}
-                className="not-prose text-accent-primary hover:text-accent-secondary"
-              >
-                {previousPost.title ?? "Home"}
-              </Link>
-            </div>
-          </div>
-          <div className="col-span-3">
-            <div id="box-info" className="">
-              <h2 className="not-prose">Introduction</h2>
-              <p>{post.description}</p>
-
-              <Image
-                src={post.cover}
-                alt="hero image"
-                placeholder="blur"
-                className="cover"
-                width={500}
-                height={500}
-              />
-            </div>
-            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-          </div>
-        </div>
-      </article>
-    </section>
+    <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
   );
 }
