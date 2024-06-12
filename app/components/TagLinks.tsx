@@ -10,7 +10,7 @@ export default function TagLinks(props: { tags: string[] }) {
     <Link
       href={`/tags/${tag}`}
       key={tag}
-      className="text-sm font-medium text-accent-primary"
+      className="text-sm font-medium text-accent-primary no-underline hover:text-accent-secondary"
     >
       {tag}
     </Link>

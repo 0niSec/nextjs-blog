@@ -8,7 +8,7 @@ export default function BlogPageListingItem(props: {
   tags: string[];
   date: any;
   slug: string;
-  keyProp: string;
+  keyProp: string | number;
 }) {
   return (
     <li key={props.keyProp} className="mt-10">

@@ -15,16 +15,16 @@ export default function Home() {
 
   return (
     <div className="flex flex-col divide-y">
-      <h1 className="pb-10">Home - Latest Posts</h1>
+      <h1 className="pb-10">Latest Posts</h1>
       <ul className="divide-y divide-y-neutral-800">
-        {recentPosts.map((post) => (
+        {recentPosts.map((post, index) => (
           <HomePageListingItem
             title={post.title}
             slug={post.permalink}
             tags={post.tags}
-            description={post.description}
+            description={post.description as string}
             date={post.date}
-            keyProp={post.title}
+            keyProp={post.slug}
           />
         ))}
       </ul>

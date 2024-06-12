@@ -79,6 +79,10 @@
     @apply text-neutral-200/50;
   }
 
+  article:has(.prose) a {
+    @apply text-accent-primary !important;
+  }
+
   article:has(#table-of-contents) a {
     @apply text-accent-primary hover:text-accent-secondary no-underline;
   }
@@ -123,4 +127,8 @@
 p > mark {
   background: rgb(--color-accent-primary) !important;
   color: rgb(--color-primary) !important;
+}
+
+.cover {
+  margin-top: 0;
 }

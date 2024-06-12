@@ -8,7 +8,7 @@ export default function HomePageListingItem(props: {
   tags: string[];
   date: any;
   slug: string;
-  keyProp: string;
+  keyProp: string | number;
 }) {
   return (
     <li className="py-10" key={props.keyProp}>

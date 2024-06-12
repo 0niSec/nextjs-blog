@@ -24,14 +24,15 @@ export default function BlogPage() {
       <Suspense fallback={<Loading />}>
         <div id="post-listing" className="col-span-3">
           <ul>
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <BlogPageListingItem
                 key={post.title}
                 title={post.title}
                 tags={post.tags}
-                description={post.description}
+                description={post.description as string}
                 date={post.date}
                 slug={post.permalink}
+                keyProp={post.slug}
               />
             ))}
           </ul>

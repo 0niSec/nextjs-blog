@@ -12,6 +12,7 @@ tags:
     "CVE-2022-37706",
   ]
 slug: "boardlight"
+cover: "Boardlight.png"
 date: 2024-06-10
 isMachineActive: true
 ---
