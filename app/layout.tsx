@@ -3,6 +3,7 @@ import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fira = Fira_Code({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <SpeedInsights />
       <body
         className={`${fira.className} antialiased bg-neutral-900 text-neutral-200`}
       >
