@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex flex-col divide-y">
       <h1 className="pb-10">Latest Posts</h1>
       <ul className="divide-y divide-y-neutral-800">
-        {recentPosts.map((post, index) => (
+        {recentPosts.map((post) => (
           <HomePageListingItem
             title={post.title}
             slug={post.permalink}

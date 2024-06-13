@@ -7,14 +7,6 @@ import remarkToc from "remark-toc";
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
 
-const meta = s
-  .object({
-    title: s.string().optional(),
-    description: s.string().optional(),
-    keywords: s.array(s.string()).optional(),
-  })
-  .default({});
-
 const posts = defineCollection({
   name: "Post",
   pattern: "posts/**/*.md",
@@ -26,7 +18,6 @@ const posts = defineCollection({
       updated: s.isodate().optional(),
       cover: s.image().optional(),
       description: s.string().max(999).optional(),
-      excerpt: s.excerpt(),
       tags: s.array(s.string()).default([]),
       content: s.markdown(),
       isMachineActive: s.boolean(false).optional(),

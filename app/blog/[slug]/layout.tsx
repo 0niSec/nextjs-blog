@@ -45,10 +45,10 @@ export default function BlogPostLayout({
                 Next Article
               </h5>
               <Link
-                href={previousPost.slug ?? "/"}
+                href={previousPost.slug}
                 className="not-prose text-accent-primary hover:text-accent-secondary"
               >
-                {previousPost.title ?? "Home"}
+                {previousPost.title}
               </Link>
             </div>
           </div>
