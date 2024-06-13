@@ -30,7 +30,7 @@ export default function BlogPage() {
               description={post.description as string}
               date={post.date}
               slug={post.permalink}
-              keyProp={post.slug}
+              id={post.slug}
             />
           ))}
         </ul>

@@ -62,7 +62,6 @@ export default function BlogPostLayout({
               <Image
                 src={post.cover?.src as string}
                 alt="hero image"
-                placeholder="blur"
                 width={550}
                 height={550}
               />

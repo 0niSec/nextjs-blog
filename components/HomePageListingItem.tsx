@@ -8,10 +8,10 @@ export default function HomePageListingItem(props: {
   tags: string[];
   date: any;
   slug: string;
-  key: string | number;
+  id: string | number;
 }) {
   return (
-    <li key={props.key} className="py-10">
+    <li key={props.id} className="py-10">
       <div className="flex flex-col md:grid md:grid-cols-4">
         <div className="col-start-1">
           <h3 className="">
