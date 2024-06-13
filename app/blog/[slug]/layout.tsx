@@ -20,6 +20,8 @@ export default function BlogPostLayout({
   if (post == null) notFound();
 
   const previousPost = getPreviousPost(post?.slug as string);
+  const coverSrc = post.cover?.src;
+  console.log(coverSrc);
 
   return (
     <section className="prose container prose-headings:text-neutral-300 text-neutral-200 max-w-none">
@@ -58,7 +60,7 @@ export default function BlogPostLayout({
               <h2 className="not-prose">Introduction</h2>
               <p>{post.description}</p>
               <Image
-                src={post.cover}
+                src={post.cover?.src as string}
                 alt="hero image"
                 placeholder="blur"
                 width={550}

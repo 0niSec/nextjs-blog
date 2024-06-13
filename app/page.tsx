@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Home() {
   const recentPosts = posts
     .slice()
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 5);
 
   return (
@@ -23,7 +23,7 @@ export default function Home() {
             tags={post.tags}
             description={post.description as string}
             date={post.date}
-            keyProp={post.slug}
+            key={post.slug}
           />
         ))}
       </ul>

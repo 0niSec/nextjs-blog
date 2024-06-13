@@ -1,4 +1,3 @@
-import Error from "next/error";
 import Link from "next/link";
 
 export default function TagLinks(props: { tags: string[] }) {
