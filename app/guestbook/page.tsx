@@ -1,11 +1,15 @@
 import { createClient } from "@/lib/supabase/server";
+import { cookies } from "next/headers";
 
 export default async function Guestbook() {
-  const supabase = createClient();
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
 
-  const { data, error } = await supabase.from("guestbook").select();
+  const { data: guestbook, error } = await supabase
+    .from("guestbook")
+    .select("*");
 
-  console.log(data);
+  console.log(guestbook);
   console.log(error);
   return (
     <form method="POST" className="mt-8 relative max-w-[500px] gap-2">
