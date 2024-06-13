@@ -8,46 +8,7 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   await build({ watch: isDev, clean: !isDev });
 }
 
-const cspHeader = `
-    default-src 'self' *.0nisec.blog;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://clerk.0nisec.blog/;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-`;
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "*", // Set your origin
-          },
-          {
-            key: "Content-Security-Policy",
-            value: cspHeader.replace(/\n/g, ""),
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
-          },
-        ],
-      },
-    ];
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
