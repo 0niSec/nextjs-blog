@@ -23,7 +23,7 @@ export default function Home() {
             tags={post.tags}
             description={post.description as string}
             date={post.date}
-            id={post.slug}
+            key={post.slug}
           />
         ))}
       </ul>

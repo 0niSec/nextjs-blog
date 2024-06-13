@@ -8,10 +8,9 @@ export default function BlogPageListingItem(props: {
   tags: string[];
   date: any;
   slug: string;
-  id: string | number;
 }) {
   return (
-    <li key={props.id} className="mt-10">
+    <li className="mt-10">
       <h4 className="text-neutral-400">
         <FormattedDate date={props.date} />
       </h4>

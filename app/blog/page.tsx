@@ -24,13 +24,12 @@ export default function BlogPage() {
         <ul>
           {posts.map((post) => (
             <BlogPageListingItem
-              key={post.title}
+              key={post.slug}
               title={post.title}
               tags={post.tags}
               description={post.description as string}
               date={post.date}
               slug={post.permalink}
-              id={post.slug}
             />
           ))}
         </ul>
