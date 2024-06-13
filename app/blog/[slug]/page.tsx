@@ -37,14 +37,14 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   if (post == null) notFound();
 
   return post.isMachineActive ? (
-    <div className="flex flex-col">
+    <section>
       <p>こんにちわ！ Hello!👋</p>
       <p>
         This machine is still active. Per Hack The Box rules, this writeup will
         be released once the machine is retired and writeups are allowed to be
         posted.
       </p>
-    </div>
+    </section>
   ) : (
     <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
   );

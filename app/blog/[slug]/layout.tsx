@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-export default function SlugLayout({
+export default function BlogPostLayout({
   children,
   params,
 }: {

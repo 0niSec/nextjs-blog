@@ -14,7 +14,7 @@ tags:
 slug: "boardlight"
 cover: "Boardlight.png"
 date: 2024-06-10
-isMachineActive: true
+isMachineActive: false
 ---
 
 ## Table of Contents
