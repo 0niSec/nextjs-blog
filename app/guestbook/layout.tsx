@@ -8,7 +8,7 @@ import {
 
 import { dark } from "@clerk/themes";
 
-export default function GuestbookLayout({
+export default async function GuestbookLayout({
   children,
 }: {
   children: React.ReactNode;

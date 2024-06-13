@@ -4,21 +4,21 @@ import { Search } from "lucide-react";
 
 export default function NavBar() {
   return (
-    <header className="py-10">
-      <nav className="container max-w-5xl flex justify-between items-center font-semibold">
+    <header className="py-4 md:py-10">
+      <nav className="container px-4 md:px-0 md:max-w-5xl flex justify-between items-center font-semibold">
         <div className="flex  items-center">
           <Link href={"/"} className="text-2xl">
             0niSec
           </Link>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           <Link href={"/blog"}>Blog</Link>
           <Link href={"/tags"}>Tags</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/guestbook"}>Guestbook</Link>
           <Search className="w-6 h-6 cursor-pointer" />
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           <Link href={GITHUB_URL}>
             <svg
               role="img"

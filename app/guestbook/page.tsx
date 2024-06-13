@@ -1,4 +1,12 @@
-export default function Guestbook() {
+import { createClient } from "@/lib/supabase/server";
+
+export default async function Guestbook() {
+  const supabase = createClient();
+
+  const { data, error } = await supabase.from("guestbook").select();
+
+  console.log(data);
+  console.log(error);
   return (
     <form method="POST" className="mt-8 relative max-w-[500px] gap-2">
       <span className="sr-only"> Comment </span>

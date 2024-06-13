@@ -45,8 +45,9 @@ export default function BlogPostLayout({
                 Next Article
               </h5>
               <Link
-                href={previousPost.slug}
+                href={`/blog/${previousPost.slug}`}
                 className="not-prose text-accent-primary hover:text-accent-secondary"
+                prefetch={true}
               >
                 {previousPost.title}
               </Link>
@@ -60,8 +61,8 @@ export default function BlogPostLayout({
                 src={post.cover}
                 alt="hero image"
                 placeholder="blur"
-                width={500}
-                height={500}
+                width={550}
+                height={550}
               />
             </div>
             <div className="flex flex-col">{children}</div>

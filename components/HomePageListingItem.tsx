@@ -12,13 +12,13 @@ export default function HomePageListingItem(props: {
 }) {
   return (
     <li className="py-10" key={props.keyProp}>
-      <div className="grid grid-cols-4">
+      <div className="flex flex-col md:grid md:grid-cols-4">
         <div className="col-start-1">
           <h3 className="">
             <FormattedDate date={props.date} />
           </h3>
         </div>
-        <div className="col-start-2 col-span-3">
+        <div className="md:col-start-2 md:col-span-3">
           <h2>
             <Link href={props.slug}>{props.title}</Link>
           </h2>

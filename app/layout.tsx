@@ -46,7 +46,7 @@ export default function RootLayout({
         className={`${fira.className} antialiased bg-neutral-900 text-neutral-200`}
       >
         <NavBar />
-        <main className="container flex min-h-screen flex-col max-w-5xl mt-10">
+        <main className="container flex px-4 md:px-0 min-h-screen flex-col md:max-w-5xl mt-10">
           {children}
         </main>
         <Footer />

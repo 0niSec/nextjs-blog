@@ -16,5 +16,9 @@ export default function TagLinks(props: { tags: string[] }) {
     </Link>
   ));
 
-  return <div className="flex flex-row space-x-3">{formattedTags}</div>;
+  return (
+    <div className="md:flex md:flex-row flex-wrap space-x-3">
+      {formattedTags}
+    </div>
+  );
 }

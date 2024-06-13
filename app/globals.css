@@ -76,10 +76,6 @@
     @apply text-base font-bold;
   }
 
-  .heading-link {
-    @apply text-neutral-200/50;
-  }
-
   section.prose a {
     @apply text-accent-primary hover:text-accent-secondary no-underline !important;
   }
