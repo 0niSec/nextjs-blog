@@ -9,7 +9,7 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 }
 
 const cspHeader = `
-    default-src 'self';
+    default-src 'self' *0nisec.blog;
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://clerk.0nisec.blog/;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
