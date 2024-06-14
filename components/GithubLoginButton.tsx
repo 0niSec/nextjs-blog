@@ -1,29 +1,6 @@
 "use client";
 
-import { createClient } from "@/lib/supabase/client";
-import { redirect } from "next/navigation";
-
-const supabase = createClient();
-
-async function signInWithGithub() {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: "github",
-    options: {
-      redirectTo: "https://yvxxlqqiihmrbllvtbwr.supabase.co/auth/v1/callback",
-      scopes: "read:user",
-    },
-  });
-
-  async function getSession() {}
-
-  if (error) {
-    console.error(error);
-  }
-
-  if (data.url) {
-    redirect(data.url); // use the redirect API for your server framework
-  }
-}
+import { signInWithGithub } from "@/actions/github-login";
 
 export default function GitHubLoginButton() {
   return (

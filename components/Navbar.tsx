@@ -15,6 +15,7 @@ export default function NavBar() {
           <Link href={"/blog"}>Blog</Link>
           <Link href={"/tags"}>Tags</Link>
           <Link href={"/about"}>About</Link>
+          <Link href={"/guestbook"}>Guestbook</Link>
           <Search className="w-6 h-6 cursor-pointer" />
         </div>
         <div className="hidden md:flex items-center space-x-4">

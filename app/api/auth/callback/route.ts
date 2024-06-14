@@ -5,10 +5,8 @@ import { type CookieOptions, createServerClient } from "@supabase/ssr";
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-
-  console.log(code);
   // if "next" is in param, use it as the redirect URL
-  const next = searchParams.get("next") ?? "/";
+  const next = searchParams.get("next") ?? "/guestbook";
 
   if (code) {
     const cookieStore = cookies();
@@ -33,8 +31,6 @@ export async function GET(request: Request) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`);
     }
-
-    return NextResponse.redirect(`${origin}/guestbook`);
   }
 
   // return the user to an error page with instructions

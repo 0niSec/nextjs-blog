@@ -1,14 +1,17 @@
 import { createClient } from "@/lib/supabase/server";
 
-const supabase = createClient();
-
 export default async function GuestbookPage() {
+  const supabase = createClient();
   const { data: guestbook, error } = await supabase
     .from("guestbook")
-    .select("*");
+    .select("*")
+    .limit(50);
 
   console.log(guestbook);
   console.log(error);
+
+  const { data } = await supabase.auth.getUser();
+  console.log(data);
   return (
     <form method="POST" className="mt-8 relative max-w-[500px] gap-2">
       <span className="sr-only"> Comment </span>
