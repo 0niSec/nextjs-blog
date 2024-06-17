@@ -8,10 +8,9 @@ export default async function GuestbookPage() {
     .limit(50);
 
   console.log(guestbook);
-  console.log(error);
 
   const { data } = await supabase.auth.getUser();
-  console.log(data);
+
   return (
     <form method="POST" className="mt-8 relative max-w-[500px] gap-2">
       <span className="sr-only"> Comment </span>
