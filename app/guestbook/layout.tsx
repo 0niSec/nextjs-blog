@@ -1,5 +1,11 @@
 import GitHubLoginButton from "@/components/GithubLoginButton";
 import GuestbookFeed from "@/components/GuestbookFeed";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 
 export default async function GuestbookLayout({
   children,
@@ -7,14 +13,25 @@ export default async function GuestbookLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <h2>Sign my guestbook</h2>
-      <div className="flex">
-        <GitHubLoginButton />
-      </div>
-      <div>
-        {children} <GuestbookFeed />
-      </div>
-    </section>
+    <ClerkProvider>
+      <section>
+        <h2>Sign my guestbook</h2>
+        <SignedOut>
+          <div className="flex">
+            <SignInButton>
+              <GitHubLoginButton />
+            </SignInButton>
+          </div>
+          <div>
+            <GuestbookFeed />
+          </div>
+        </SignedOut>
+        <SignedIn>
+          <div>
+            {children} <GuestbookFeed />
+          </div>
+        </SignedIn>
+      </section>
+    </ClerkProvider>
   );
 }
