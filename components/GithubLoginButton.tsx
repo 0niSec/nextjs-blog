@@ -1,8 +1,35 @@
+"use client";
+
+import { createClient } from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
+
 export default function GitHubLoginButton() {
+  const router = useRouter();
+  async function signInWithGithub() {
+    const supabase = createClient();
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: process.env.NEXT_PUBLIC_SUPABASE_AUTH_CALLBACK,
+        scopes: "read:user, user:email",
+      },
+    });
+
+    if (error) {
+      router.push("/error");
+    }
+
+    if (data.url) {
+      router.push(data.url); // use the redirect API for your server framework
+    }
+  }
+
   return (
     <button
       id="login"
       className="flex items-center justify-center gap-x-2 bg-black p-3 border border-zinc-700 text-neutral-200 mt-4 rounded-lg text-sm font-bold"
+      onClick={signInWithGithub}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -7,7 +7,12 @@ export default async function GuestbookPage() {
     .select("*")
     .limit(50);
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   console.log(guestbook);
+  console.log(user);
 
   return (
     <form method="POST" className="mt-8 relative max-w-[500px] gap-2">
